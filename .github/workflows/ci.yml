@@ -22,4 +22,6 @@ jobs:
           java-version: 17
 
       - name: Build with Gradle
-        run: chmod +x ./gradlew test
+        run: |
+          chmod +x ./gradlew
+          ./gradlew test
