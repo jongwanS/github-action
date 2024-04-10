@@ -16,4 +16,9 @@ public class GithubactionApplication {
     public ResponseEntity<?> test(){
         return ResponseEntity.ok().body("ok");
     }
+
+    @GetMapping("/test2")
+    public ResponseEntity<?> test2(){
+        return ResponseEntity.ok().body("ok");
+    }
 }
