@@ -1,5 +1,6 @@
 package com.example.githubaction.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,6 +21,7 @@ public class TestControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    @DisplayName("테스트")
     public void testTestEndpoint() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/test")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -27,4 +29,5 @@ public class TestControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("ok"))
                 .andDo(MockMvcResultHandlers.print());
     }
+
 }
