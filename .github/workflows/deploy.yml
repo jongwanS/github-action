@@ -2,14 +2,14 @@ name: Deploy to Amazon EC2
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ["CI"] # ci.yml 이 끝난 이후에만
     types:
       - completed
 
 env:
   AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: ec2-jwlim-github-action
-  CODE_DEPLOY_APPLICATION_NAME: ec2-codedeploy-app
+  S3_BUCKET_NAME: ${{ secrets.AWS_DEPLOY_BUCKET_NAME }}
+  CODE_DEPLOY_APPLICATION_NAME: ${{ secrets.AWS_DEPLOY_APP_NAME }}
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: ec2-github-actions
 
 permissions:
