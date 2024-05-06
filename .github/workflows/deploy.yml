@@ -1,9 +1,10 @@
 name: Deploy to Amazon EC2
 
 on:
-  push:
-    branches:
-      - master
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
 
 env:
   AWS_REGION: ap-northeast-2
@@ -18,7 +19,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment: production
+    if: github.ref == 'refs/heads/master'  # master 브랜치인 경우에만 실행
 
     steps:
       # (1) 기본 체크아웃
