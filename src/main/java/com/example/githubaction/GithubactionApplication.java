@@ -12,8 +12,4 @@ public class GithubactionApplication {
         SpringApplication.run(GithubactionApplication.class, args);
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<?> test(){
-        return ResponseEntity.ok().body("ok");
-    }
 }
