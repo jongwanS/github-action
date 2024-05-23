@@ -18,6 +18,11 @@ jobs:
         with:
           ref: master  # master 브랜치를 체크아웃
 
+      - name: Set up Git
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+
       - name: Create new release branch
         run: |
           # Create a new branch name based on the current date and time
